@@ -9,7 +9,8 @@ public class main {
 		//myProfile.createLayout();
 		Registration myRegistration = new Registration();
 		//myRegistration.createLayout();
-
+		SetUpProfile mySetUp = new SetUpProfile();
+		//mySetUp.createLayout();
 	}
 
 }

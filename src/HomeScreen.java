@@ -1,6 +1,8 @@
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -9,15 +11,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import com.sun.xml.internal.ws.api.server.Container;
+public class HomeScreen implements Screen, ActionListener {
 
-
-public class HomeScreen implements Screen {
-
+	JFrame frame = new JFrame("Home Screen");
 	public void createLayout()
 	{
-		
-		JFrame frame = new JFrame("Home Screen");
 		JPanel pane = new JPanel();
 		JPanel pane1 = new JPanel();
 		frame.setSize(500, 300  );
@@ -26,10 +24,13 @@ public class HomeScreen implements Screen {
 		JLabel username, password;
 		JTextField name, pass;
 		login = new JButton("Login");
-		pane.add(login); 
+	//	login.addActionListener(this);
+		pane.add(login);
 		register = new JButton("Register");
+		register.addActionListener(this);
 		pane.add(register);
 		viewMessages = new JButton("View Public Messages");
+	//	viewMessages.addActionListener(this);
 		pane.add(viewMessages);
 		pane1.setLayout( new GridLayout( 2,2 ));
 		username = new JLabel("Username");
@@ -43,6 +44,16 @@ public class HomeScreen implements Screen {
 		frame.add(pane, BorderLayout.SOUTH);
 		frame.add(pane1, BorderLayout.CENTER);
 	//	frame.getContentPane().add(BorderLayout.CENTER);
+		frame.pack();
 		frame.setVisible(true);
 	}
+
+	public void actionPerformed(ActionEvent arg0) {
+		
+		frame.setVisible(false);
+		frame.dispose();
+		Registration myRegistration = new Registration();
+		myRegistration.createLayout();
+	}
+	
 }
