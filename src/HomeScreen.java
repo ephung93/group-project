@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import com.sun.xml.internal.ws.api.server.Container;
+//import com.sun.xml.internal.ws.api.server.Container;
 
 
 public class HomeScreen implements Screen {
@@ -34,11 +34,11 @@ public class HomeScreen implements Screen {
 		pane1.setLayout( new GridLayout( 2,2 ));
 		username = new JLabel("Username");
 		pane1.add(username);
-		name = new JTextField(25);
+		name = new JTextField(5);
 		pane1.add(name);
 		password = new JLabel("Password");
 		pane1.add(password);
-		pass = new JTextField(25);
+		pass = new JTextField(5);
 		pane1.add(pass);
 		frame.add(pane, BorderLayout.SOUTH);
 		frame.add(pane1, BorderLayout.CENTER);
