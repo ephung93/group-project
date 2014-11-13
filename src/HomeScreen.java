@@ -11,7 +11,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+
+
+
 public class HomeScreen implements Screen, ActionListener {
+
 
 	JFrame frame = new JFrame("Home Screen");
 	JButton login, register, viewMessages;
@@ -36,11 +40,11 @@ public class HomeScreen implements Screen, ActionListener {
 		pane1.setLayout( new GridLayout( 2,2 ));
 		username = new JLabel("Username");
 		pane1.add(username);
-		name = new JTextField(25);
+		name = new JTextField(5);
 		pane1.add(name);
 		password = new JLabel("Password");
 		pane1.add(password);
-		pass = new JTextField(25);
+		pass = new JTextField(5);
 		pane1.add(pass);
 		frame.add(pane, BorderLayout.SOUTH);
 		frame.add(pane1, BorderLayout.CENTER);

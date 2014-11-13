@@ -16,6 +16,10 @@ public class Registration implements Screen, ActionListener {
 	JButton register, cancel;
 	public void createLayout()
 	{
+
+		JFrame frame = new JFrame("Registration");
+		frame.setSize(200, 700);
+
 		JPanel pane1 = new JPanel();
 		JPanel pane2 = new JPanel();
 		frame.setSize(1000, 700);
@@ -38,6 +42,7 @@ public class Registration implements Screen, ActionListener {
 		pane2.add(cancel);
 		frame.add(pane1);
 		frame.add(pane2, BorderLayout.SOUTH);
+
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	//	frame.getContentPane().add(BorderLayout.CENTER);
 		frame.pack();
