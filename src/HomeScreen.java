@@ -14,23 +14,24 @@ import javax.swing.JTextField;
 public class HomeScreen implements Screen, ActionListener {
 
 	JFrame frame = new JFrame("Home Screen");
+	JButton login, register, viewMessages;
 	public void createLayout()
 	{
 		JPanel pane = new JPanel();
 		JPanel pane1 = new JPanel();
 		frame.setSize(500, 300  );
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		JButton login, register, viewMessages;
+		//JButton login, register, viewMessages;
 		JLabel username, password;
 		JTextField name, pass;
 		login = new JButton("Login");
-	//	login.addActionListener(this);
+		login.addActionListener(this);
 		pane.add(login);
 		register = new JButton("Register");
 		register.addActionListener(this);
 		pane.add(register);
 		viewMessages = new JButton("View Public Messages");
-	//	viewMessages.addActionListener(this);
+		viewMessages.addActionListener(this);
 		pane.add(viewMessages);
 		pane1.setLayout( new GridLayout( 2,2 ));
 		username = new JLabel("Username");
@@ -48,12 +49,28 @@ public class HomeScreen implements Screen, ActionListener {
 		frame.setVisible(true);
 	}
 
-	public void actionPerformed(ActionEvent arg0) {
+	public void actionPerformed(ActionEvent e) {
 		
-		frame.setVisible(false);
-		frame.dispose();
-		Registration myRegistration = new Registration();
-		myRegistration.createLayout();
+		 if(e.getSource()==register){
+			 frame.setVisible(false);
+			 frame.dispose();
+			 Registration myRegistration = new Registration();
+			 myRegistration.createLayout();
+		 }
+		 else if(e.getSource()==login){
+			 //If Login Information is correct
+			 frame.setVisible(false);
+			 frame.dispose();
+			 Profile myProfile = new Profile();
+			 myProfile.createLayout();
+		 }
+		 else if(e.getSource()==viewMessages){
+			 //If Login Information is correct
+			 frame.setVisible(false);
+			 frame.dispose();
+			 ViewPublicMessages myVPM = new ViewPublicMessages();
+			 myVPM.createLayout();
+		 }
 	}
 	
 }

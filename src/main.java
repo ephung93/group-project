@@ -5,12 +5,7 @@ public class main {
 		
 		HomeScreen myScreen = new HomeScreen();
 		myScreen.createLayout();
-		Profile myProfile = new Profile();
-		//myProfile.createLayout();
-		Registration myRegistration = new Registration();
-		//myRegistration.createLayout();
-		SetUpProfile mySetUp = new SetUpProfile();
-		//mySetUp.createLayout();
+	
 	}
 
 }
