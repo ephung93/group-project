@@ -23,9 +23,9 @@ public class Registration implements Screen, ActionListener {
 		JPanel pane1 = new JPanel();
 		JPanel pane2 = new JPanel();
 		frame.setSize(1000, 700);
-		JLabel username, password;
-		JTextField name, pass;
-		pane1.setLayout( new GridLayout( 2,2 ));
+		JLabel username, password, fName, lName;
+		JTextField name, pass, firstName, lastName;
+		pane1.setLayout( new GridLayout( 4,2 ));
 		username = new JLabel("Username");
 		pane1.add(username);
 		name = new JTextField(25);
@@ -34,6 +34,15 @@ public class Registration implements Screen, ActionListener {
 		pane1.add(password);
 		pass = new JTextField(25);
 		pane1.add(pass);
+		fName = new JLabel("First Name");
+		pane1.add(fName);
+		firstName = new JTextField(25);
+		pane1.add(firstName);
+		lName = new JLabel("Last Name");
+		pane1.add(lName);
+		lastName = new JTextField(25);
+		pane1.add(lastName);
+		
 		register = new JButton("Register");
 		register.addActionListener(this);
 		pane2.add(register);
@@ -56,8 +65,8 @@ public class Registration implements Screen, ActionListener {
 				 //if registration is complete
 				 frame.setVisible(false);
 				 frame.dispose();
-				 SetUpProfile mySUP = new SetUpProfile();
-				 mySUP.createLayout();
+				 Profile myProfile = new Profile();
+				 myProfile.createLayout();
 			 }
 			 else if(e.getSource()==cancel){
 				 frame.setVisible(false);

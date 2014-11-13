@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -58,6 +59,7 @@ public class HomeScreen implements Screen, ActionListener {
 		 if(e.getSource()==register){
 			 frame.setVisible(false);
 			 frame.dispose();
+			
 			 Registration myRegistration = new Registration();
 			 myRegistration.createLayout();
 		 }
