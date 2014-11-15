@@ -1,5 +1,5 @@
-!1171;s
-A
+!1662;s
+J
 SAU0PATH+=%<JGRASP_PATHS>%;\012PATH=+%;%<JGRASP_C_PATHS>\012CYGWIN=nodosfilewarning\012-Run\012ADD_EXE_PATH==Y\012
 SCU0PATH+=%<JGRASP_PATHS>%;\012PATH=+%;%<JGRASP_C_PATHS>\012CYGWIN=nodosfilewarning\012-Run\012ADD_EXE_PATH==Y\012
 S+U0PATH+=%<JGRASP_PATHS>%;\012PATH=+%;%<JGRASP_C_PATHS>\012CYGWIN=nodosfilewarning\012-Run\012ADD_EXE_PATH==Y\012
@@ -8,11 +8,17 @@ SOU0PATH+=%<JGRASP_PATHS>%;\012PATH=+%;%<JGRASP_C_PATHS>\012CYGWIN=nodosfilewarn
 SyU0PATH+=%<PYTHON_PATH>%;\012PATH+=%<JGRASP_PATHS>%;\012CYGWIN=nodosfilewarning
 SPU0
 s#i0
-s#k0
-s#j0
+s#k0C:\\Users\\Shana\\Documents\\UCanAccess-2.0.9.2-bin\\ucanaccess-2.0.9.2.jar\000\012C:\\Users\\Shana\\Documents\\UCanAccess-2.0.9.2-bin\\lib\\commons-lang-2.6.jar\000\012C:\\Users\\Shana\\Documents\\UCanAccess-2.0.9.2-bin\\lib\\commons-logging-1.1.1.jar\000\012C:\\Users\\Shana\\Documents\\UCanAccess-2.0.9.2-bin\\lib\\hsqldb.jar\000\012C:\\Users\\Shana\\Documents\\UCanAccess-2.0.9.2-bin\\lib\\jackcess-2.0.6.jar\000
+s#j0C:\\Users\\Shana\\Documents\\UCanAccess-2.0.9.2-bin\\ucanaccess-2.0.9.2.jar
 s#l0
 s#m0src
 s#n0classes
 s#p0doc
 s#q0test
 s#w0canvas
+!44;g
+%\011Insert.java
+%\011src%sJDBCExample.java
+!44;f
+%\011Insert.java
+%\011src%sJDBCExample.java

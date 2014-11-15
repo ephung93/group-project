@@ -8,11 +8,15 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import java.sql.*;
 
 
 public class Registration implements Screen, ActionListener {
 	
-	JFrame frame = new JFrame("Registration");
+ 
+   private JTextField name, pass, firstName, lastName;
+   
+   JFrame frame = new JFrame("Registration");
 	JButton register, cancel;
 	public void createLayout()
 	{
@@ -24,7 +28,7 @@ public class Registration implements Screen, ActionListener {
 		JPanel pane2 = new JPanel();
 		frame.setSize(1000, 700);
 		JLabel username, password, fName, lName;
-		JTextField name, pass, firstName, lastName;
+		//JTextField name, pass, firstName, lastName;
 		pane1.setLayout( new GridLayout( 4,2 ));
 		username = new JLabel("Username");
 		pane1.add(username);
@@ -56,12 +60,22 @@ public class Registration implements Screen, ActionListener {
 	//	frame.getContentPane().add(BorderLayout.CENTER);
 		frame.pack();
 		frame.setVisible(true);
-		
-	}
+      
+     	}
 		
 		public void actionPerformed(ActionEvent e) {
 			
 			 if(e.getSource()==register){
+               
+             //variables to hold info read in from text fields 
+             String userName = name.getText();
+             String fstName = firstName.getText();
+             String lstName = lastName.getText();
+             String passWord = pass.getText();
+		
+             //inserts into DB
+             Insert.insertUser(userName, fstName, lstName, passWord);          
+
 				 //if registration is complete
 				 frame.setVisible(false);
 				 frame.dispose();
