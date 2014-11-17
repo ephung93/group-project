@@ -71,7 +71,7 @@ public class HomeScreen implements Screen, ActionListener {
 			 myProfile.createLayout();
 		 }
 		 else if(e.getSource()==viewMessages){
-			 //If Login Information is correct
+			 
 			 frame.setVisible(false);
 			 frame.dispose();
 			 ViewPublicMessages myVPM = new ViewPublicMessages();

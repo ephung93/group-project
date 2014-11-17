@@ -6,8 +6,10 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
 import java.sql.*;
 
 
@@ -20,8 +22,6 @@ public class Registration implements Screen, ActionListener {
 	JButton register, cancel;
 	public void createLayout()
 	{
-
-		JFrame frame = new JFrame("Registration");
 		frame.setSize(200, 700);
 
 		JPanel pane1 = new JPanel();
@@ -74,9 +74,14 @@ public class Registration implements Screen, ActionListener {
              String passWord = pass.getText();
 		
              //inserts into DB
-             Insert.insertUser(userName, fstName, lstName, passWord);          
-
-				 //if registration is complete
+             //Don't insert if any fields are left blank
+             if((userName=="")||(fstName=="")||(lstName=="")||(passWord==""))
+            	 Insert.insertUser(userName, fstName, lstName, passWord);
+             else
+             {
+            	 JOptionPane.showMessageDialog(frame, "You may not leave any field blank for registration.");
+            	 return;
+             } 
 				 frame.setVisible(false);
 				 frame.dispose();
 				 Profile myProfile = new Profile();

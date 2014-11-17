@@ -38,7 +38,8 @@ public class Profile implements Screen, ActionListener {
 		one.add(postMessage);
 		myMessages = new JTextField(140);
 		two.add(myMessages);
-		bigger.add(one, two);
+		bigger.add(one);
+		bigger.add(two);
 		frame.add(bigger, BorderLayout.CENTER);
 		
 		frame.pack();
