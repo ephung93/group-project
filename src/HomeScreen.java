@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import java.sql.*;
 
 
 
@@ -20,6 +21,7 @@ public class HomeScreen implements Screen, ActionListener {
 
 	JFrame frame = new JFrame("Home Screen");
 	JButton login, register, viewMessages;
+   private JTextField name, pass;
 	public void createLayout()
 	{
 		JPanel pane = new JPanel();
@@ -28,7 +30,6 @@ public class HomeScreen implements Screen, ActionListener {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//JButton login, register, viewMessages;
 		JLabel username, password;
-		JTextField name, pass;
 		login = new JButton("Login");
 		login.addActionListener(this);
 		pane.add(login);
@@ -65,11 +66,66 @@ public class HomeScreen implements Screen, ActionListener {
 		 }
 		 else if(e.getSource()==login){
 			 //If Login Information is correct
-			 frame.setVisible(false);
-			 frame.dispose();
-			 Profile myProfile = new Profile();
-			 myProfile.createLayout();
-		 }
+          //variables to hold info read in from text fields 
+          String userName = name.getText();
+          String passWord = pass.getText();
+          
+            Connection conn = null;
+         	Statement stmt = null;{
+         	try{
+         		conn = DBConnection.getConnection();
+         		
+         		System.out.println("Creating statemnt");
+         		stmt = conn.createStatement();
+         		
+         		String sql = "SELECT userName, password FROM users";
+         		ResultSet rs = stmt.executeQuery(sql);
+         		//extract the data from result set, iterate over the columns
+         		while(rs.next()){
+         			String usrnm = rs.getString("userName");
+         			String pswd = rs.getString("password");
+         			if (userName.equals(usrnm) && passWord.equals(pswd)){
+         			System.out.println("password: " + pswd);
+         			System.out.println("userName: " + usrnm);
+                   frame.setVisible(false);
+			          frame.dispose();
+			          Profile myProfile = new Profile();
+			          myProfile.createLayout();
+                  }
+                  else {
+                     System.out.println("This user does not exist in the system.");
+                  
+                  }
+         		}
+         		rs.close();
+         	   }catch(SQLException se){
+         	      //Handle errors for JDBC
+         	      se.printStackTrace();
+         	   }catch(Exception ex){
+         	      //Handle errors for Class.forName
+         	      ex.printStackTrace();
+         	   }finally{
+         	      //finally block used to close resources
+         	      try{
+         	         if(stmt!=null)
+         	            conn.close();
+         	      }catch(SQLException se){
+         	      }// do nothing
+         	      try{
+         	         if(conn!=null)
+         	            conn.close();
+         	      }catch(SQLException se){
+         	         se.printStackTrace();
+         	      }//end finally try
+         	   }//end try
+         	   System.out.println("Goodbye!");
+         	}//end main
+         }//end JDBCExample
+
+          
+           
+			
+		 
 		 else if(e.getSource()==viewMessages){
 			 
 			 frame.setVisible(false);
