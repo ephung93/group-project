@@ -2,6 +2,8 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.Statement;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,21 +15,20 @@ import javax.swing.JTextField;
 public class Profile implements Screen, ActionListener {
 
 	JFrame frame = new JFrame("Profile");
-	JButton postMessage;
+	JButton postMessage, logOut;
 	public void createLayout()
 	{
 		frame.setSize(1000, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		JPanel one, two, bigger;
+		JPanel one, two, bigger, last;
 		JLabel name;
-		JButton postMessage;
 		JTextField message, myMessages;
-		
+	
 		bigger = new JPanel();
 		bigger.setLayout(new GridLayout(1, 2));
 		one = new JPanel();
 		two = new JPanel();
-		
+		last = new JPanel();
 		one.setLayout( new GridLayout( 3,1 ));
 		name = new JLabel("ProfileName");
 		one.add(name);
@@ -40,6 +41,10 @@ public class Profile implements Screen, ActionListener {
 		two.add(myMessages);
 		bigger.add(one);
 		bigger.add(two);
+		logOut = new JButton("Logout");
+		logOut.addActionListener(this);
+		last.add(logOut);
+		frame.add(last, BorderLayout.SOUTH);
 		frame.add(bigger, BorderLayout.CENTER);
 		
 		frame.pack();
@@ -50,6 +55,13 @@ public class Profile implements Screen, ActionListener {
 		 if(e.getSource()==postMessage){
 			 frame.setVisible(false);
 			 frame.dispose();
+			 //add message
+		 }
+		 else if(e.getSource()==logOut){
+			 frame.setVisible(false);
+			 frame.dispose();
+			 HomeScreen myHS = new HomeScreen();
+			 myHS.createLayout();
 			 //add message
 		 }
 		 

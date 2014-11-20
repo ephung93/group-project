@@ -9,8 +9,10 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
 import java.sql.*;
 
 
@@ -70,6 +72,26 @@ public class HomeScreen implements Screen, ActionListener {
           String userName = name.getText();
           String passWord = pass.getText();
           
+          int equal, equal1;
+          equal = userName.compareTo("");
+          equal1 = passWord.compareTo("");
+          
+          if((equal==0)&&(equal1==0))
+          {
+        	  JOptionPane.showMessageDialog(frame, "You must enter a username and password.");
+     	 	  return;
+          }
+          else if(equal==0)
+          {
+        	  JOptionPane.showMessageDialog(frame, "You must enter a username.");
+     	 	  return;
+          }
+          else if(equal1==0)
+          {
+        	  JOptionPane.showMessageDialog(frame, "You must enter a password.");
+     	 	  return;
+          }
+          
             Connection conn = null;
          	Statement stmt = null;{
          	try{
@@ -94,6 +116,8 @@ public class HomeScreen implements Screen, ActionListener {
                   }
                   else {
                      System.out.println("This user does not exist in the system.");
+                     JOptionPane.showMessageDialog(frame, "This user does not exist in the system.");
+            	 	 return;
                   
                   }
          		}

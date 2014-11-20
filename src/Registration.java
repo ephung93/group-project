@@ -75,12 +75,19 @@ public class Registration implements Screen, ActionListener {
 		
              //inserts into DB
              //Don't insert if any fields are left blank
-             if((userName=="")||(fstName=="")||(lstName=="")||(passWord==""))
-            	 Insert.insertUser(userName, fstName, lstName, passWord);
-             else
+             int equal, equal1, equal2, equal3;
+             equal = userName.compareTo("");
+             equal1 = fstName.compareTo("");
+             equal2 = lstName.compareTo("");
+             equal3 = passWord.compareTo("");
+             if((equal==0)||(equal1==0)||(equal2==0)||(equal3==0))
              {
             	 JOptionPane.showMessageDialog(frame, "You may not leave any field blank for registration.");
-            	 return;
+        	 	 return;
+             }
+             else
+             {
+            	 Insert.insertUser(userName, fstName, lstName, passWord);
              } 
 				 frame.setVisible(false);
 				 frame.dispose();
