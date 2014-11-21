@@ -15,14 +15,14 @@ import javax.swing.JTextField;
 public class Profile implements Screen, ActionListener {
 
 	JFrame frame = new JFrame("Profile");
-	JButton postMessage, logOut;
+	JButton postMessage, logOut; 
+	JTextField message, myMessages;
 	public void createLayout()
 	{
 		frame.setSize(1000, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JPanel one, two, bigger, last;
 		JLabel name;
-		JTextField message, myMessages;
 	
 		bigger = new JPanel();
 		bigger.setLayout(new GridLayout(1, 2));
@@ -53,8 +53,10 @@ public class Profile implements Screen, ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		
 		 if(e.getSource()==postMessage){
-			 frame.setVisible(false);
-			 frame.dispose();
+			 String msg = message.getText();
+			 System.out.println(msg);
+			 //frame.setVisible(false);
+			 //frame.dispose();
 			 //add message
 		 }
 		 else if(e.getSource()==logOut){
